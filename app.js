@@ -35,12 +35,22 @@ function homeRoute(request,response){
 	}
 
 //3. Handle HTTP route GET /:username i.e. /yongrenwang
+function userRoute(request,response){
 	//if url == '/....'
+	var username = request.url.replace("/","");
+	if(username.length > 0){
+		response.statusCode = 200;
+  		response.setHeader('Content-Type', 'text/plain');
+  		response.write("Header \n");
+  		response.write(username + "\n");
+  		response.end("Footer \n");
 		//get json from Treehouse
 			//on "end"
 				//show profile
 			//on "error"
 				//show error
+		}
+	}
 
 //4. Function that handles the reading of files and merge in values
 	//read from file and get a string
