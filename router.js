@@ -10,6 +10,7 @@ function home(request,response){
   		renderer.view("header",{},response);
   		renderer.view("search",{},response);
   		renderer.view("footer",{},response);
+  		response.end();
   	}
 
 	
@@ -36,7 +37,8 @@ function user(request,response){
 				}
 
 				renderer.view("profile",values,response);
-  				renderer.view("footer",{},response);  		
+  				renderer.view("footer",{},response);
+  				response.end();  		
 
 			});
 			
@@ -45,6 +47,7 @@ function user(request,response){
 				renderer.view("error",{errorMessage: error.message},response);
 				renderer.view("search",{},response);
 				renderer.view("footer",{},response);
+				response.end();
 			});
 		
 		}
