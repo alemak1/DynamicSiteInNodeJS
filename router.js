@@ -42,7 +42,7 @@ function user(request,response){
 			});
 			
 			//on "error"
-			studentProfile.("error", function(error){
+			studentProfile.on("error", function(error){
 
 				response.write(username + "\n");
   				response.end("Footer \n");
