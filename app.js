@@ -12,7 +12,13 @@ const port = 3000;
 const server = http.createServer((request, response) => {
   response.statusCode = 200;
   response.setHeader('Content-Type', 'text/plain');
-  response.end('Hello World\n');
+  response.write("This is before the end \n");
+
+  setInterval(function(){
+  	response.write(new Date() + "\n");
+  }, 1000);
+
+  //response.end('Hello World\n');
 });
 
 server.listen(port, hostname, () => {
