@@ -8,8 +8,8 @@ function home(request,response){
 	 	response.statusCode = 200;
   		response.setHeader('Content-Type', 'text/plain');
   		renderer.view("header",{},response);
-  		response.write("Search \n");
-  		response.end("Footer \n");
+  		renderer.view("search",{},response);
+  		renderer.view("footer",{},response);
   	}
 
 	
@@ -20,10 +20,8 @@ function user(request,response){
 	if(username.length > 0){
 		response.statusCode = 200;
   		response.setHeader('Content-Type', 'text/plain');
-  		response.write("Header \n");
-  		
-
-
+		renderer.view("header",{},response);
+  	
 		//get json from Treehouse
 		var studentProfile = new Profile(username);
 				//show profile
@@ -37,16 +35,16 @@ function user(request,response){
 					javaScriptPoints: profileJSON.points.JavaScript
 				}
 
-				response.write(values.username + " has " + values.badges + " badges \n");
-  				response.end("Footer \n");
+				renderer.view("profile",values,response);
+  				renderer.view("footer",{},response);  		
 
 			});
 			
 			//on "error"
 			studentProfile.on("error", function(error){
-
-				response.write(error.message + "\n");
-  				response.end("Footer \n");
+				renderer.view("error",{errorMessage: error.message},response);
+				renderer.view("search",{},response);
+				renderer.view("footer",{},response);
 			});
 		
 		}
