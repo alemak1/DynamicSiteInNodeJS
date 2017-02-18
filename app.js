@@ -2,7 +2,7 @@
 
 //Solution::  Use Node.js to perform the profile look ups and server our template via HTTP.
 
-var router = require('router.js');
+var router = require('./router.js');
 
 const http = require('http');
 
