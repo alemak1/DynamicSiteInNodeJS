@@ -3,7 +3,6 @@
 //Solution::  Use Node.js to perform the profile look ups and server our template via HTTP.
 
 var router = require('./router.js');
-var renderer = require('./renderer.js');
 
 const http = require('http');
 
