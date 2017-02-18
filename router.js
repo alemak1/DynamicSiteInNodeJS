@@ -1,4 +1,5 @@
 var Profile = require("./profile.js");
+var renderer = require('./renderer.js');
 
 
 function home(request,response){
@@ -6,7 +7,7 @@ function home(request,response){
 	if(request.url === '/'){
 	 	response.statusCode = 200;
   		response.setHeader('Content-Type', 'text/plain');
-  		response.write("Header \n");
+  		renderer.view("header",{},response);
   		response.write("Search \n");
   		response.end("Footer \n");
   	}
