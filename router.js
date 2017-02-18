@@ -44,7 +44,7 @@ function user(request,response){
 			//on "error"
 			studentProfile.on("error", function(error){
 
-				response.write(username + "\n");
+				response.write(error.message + "\n");
   				response.end("Footer \n");
 			});
 		
