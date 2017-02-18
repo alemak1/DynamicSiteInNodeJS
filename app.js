@@ -14,11 +14,8 @@ const server = http.createServer((request, response) => {
   response.setHeader('Content-Type', 'text/plain');
   response.write("This is before the end \n");
 
-  setInterval(function(){
-  	response.write(new Date() + "\n");
-  }, 1000);
 
-  //response.end('Hello World\n');
+  response.end('Hello World\n');
 });
 
 server.listen(port, hostname, () => {
