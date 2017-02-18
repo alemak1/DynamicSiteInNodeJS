@@ -2,7 +2,7 @@
 
 //Solution::  Use Node.js to perform the profile look ups and server our template via HTTP.
 
-//1. Create a web server
+var router = require('router.js');
 
 const http = require('http');
 
@@ -10,7 +10,8 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer((request, response) => {
-  	homeRoute(request,response);
+  	router.home(request,response);
+  	router.user(request,response);
 });
 
 server.listen(port, hostname, () => {
@@ -18,39 +19,7 @@ server.listen(port, hostname, () => {
 });
 
 
-//2. Handle HTTP route GET / and POST / i.e. Home
-function homeRoute(request,response){
-	//if url == "/" && GET
-	if(request.url === '/'){
-	 	response.statusCode = 200;
-  		response.setHeader('Content-Type', 'text/plain');
-  		response.write("Header \n");
-  		response.write("Search \n");
-  		response.end("Footer \n");
-  	}
 
-		//show search
-	//if url == "/" && POST
-		//redirect to /:username
-	}
-
-//3. Handle HTTP route GET /:username i.e. /yongrenwang
-function userRoute(request,response){
-	//if url == '/....'
-	var username = request.url.replace("/","");
-	if(username.length > 0){
-		response.statusCode = 200;
-  		response.setHeader('Content-Type', 'text/plain');
-  		response.write("Header \n");
-  		response.write(username + "\n");
-  		response.end("Footer \n");
-		//get json from Treehouse
-			//on "end"
-				//show profile
-			//on "error"
-				//show error
-		}
-	}
 
 //4. Function that handles the reading of files and merge in values
 	//read from file and get a string

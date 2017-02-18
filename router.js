@@ -1,4 +1,4 @@
-function homeRoute(request,response){
+function home(request,response){
 	//if url == "/" && GET
 	if(request.url === '/'){
 	 	response.statusCode = 200;
@@ -11,7 +11,7 @@ function homeRoute(request,response){
 	
 	}
 
-function userRoute(request,response){
+function user(request,response){
 	var username = request.url.replace("/","");
 	if(username.length > 0){
 		response.statusCode = 200;
@@ -26,3 +26,7 @@ function userRoute(request,response){
 				//show error
 		}
 	}
+
+
+module.exports.home = home;
+module.exports.user = user;
